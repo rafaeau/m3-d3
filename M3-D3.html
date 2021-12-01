@@ -280,7 +280,7 @@
 
         })
 
-        .catch(err => { console.error(err) })
+        .catch(err => alert ("This error is causing the problem: " + (err)))
 
         .finally(() => console.log("Fetching done!"))
     }
@@ -361,7 +361,7 @@
             picRow.appendChild(col)
           }
         })
-        .catch(err => console.log(err))
+        .catch(err => alert ("This error is causing the problem: " + (err)))
         .finally(() => console.log("Fetching done"))
 
     }
@@ -389,7 +389,7 @@
 
       })
 
-      .catch(err => console.log(err))
+      .catch(err => alert ("This error is causing the problem: " + (err)))
       .finally(() => console.log("Fetching done!"))
     }
 
