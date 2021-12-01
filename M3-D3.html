@@ -170,7 +170,7 @@
         </p>
         <p>
           <a href="#" class="btn btn-primary my-2" onclick="displayPics('-query')">Load Images</a>
-          <a href="#" class="btn btn-secondary my-2" onclick="displayPics('-secondary-query')">Load Secondary Images</a>
+          <a href="#" class="btn btn-secondary my-2" onclick="displayPics('-secondary-query'); fetchPicsCount()">Load Secondary Images</a>
         </p>
       </div>
       <div class="input-group mb-3">
@@ -366,8 +366,37 @@
 
     }
 
+    const fetchPicsCount = () => {
+      fetch("https://api.pexels.com/v1/search?query=your-secondary-query", {
+        "method": "GET",
+        "headers": {
+          Authorization: "563492ad6f9170000100000185c75e5a7bfd440f92947e3ec528207b"
+        }
+      })
+      .then(response => response.json())
+      .then(pictures => {
 
-  </script>
+        console.log(pictures.photos.length)
+
+        const picsLoaded = (time) => {
+      alert(pictures.photos.length + " images loaded")
+      }
+      
+
+        setTimeout(() => {
+          picsLoaded(5000)
+        }, 5000)
+
+      })
+
+      .catch(err => console.log(err))
+      .finally(() => console.log("Fetching done!"))
+    }
+
+  
+
+    
+    </script>
 </body>
 
 </html>
