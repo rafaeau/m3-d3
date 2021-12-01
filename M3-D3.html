@@ -259,7 +259,7 @@
                           console.log(picture)
 
                           const col = document.createElement("div")
-                          col.className = "col-md-4"
+                          col.className = "col-md-4 individual-card"
                           
                           col.innerHTML =
                               `
@@ -289,9 +289,10 @@
                                       </button>
                                       <button
                                         type="button"
+                                        onclick="hidePics(event)"
                                         class="btn btn-sm btn-outline-secondary"
                                       >
-                                        Edit
+                                        Hide
                                       </button>
                                     </div>
                                     <small class="text-muted">9 mins</small>
@@ -310,8 +311,12 @@
                   .finally(() => console.log("Fetching done!"))
               }
 
-              
+              hidePics = (event) =>{
+                event.path[4].remove()
 
+              }
+              
+  
     </script>
   </body>
 </html>
